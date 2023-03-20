@@ -18,17 +18,17 @@ defined( 'ABSPATH' ) || exit;
  */
 class Statify_Schema {
 	/**
-	 * Database tables
+	 * Database tables.
 	 *
 	 * @var string[]
 	 */
-	public static $tables = array(
+	private static $tables = array(
 		'statify',
 		'statifymeta',
 	);
 
 	/**
-	 * Needed statify db version for current plugin version
+	 * Needed statify db version for current plugin version.
 	 *
 	 * @var string
 	 */
@@ -68,7 +68,7 @@ class Statify_Schema {
 		global $wpdb, $charset_collate;
 
 		/**
-		 * Use same index length like the WordPress core
+		 * Use same index length like the WordPress core.
 		 *
 		 * @see wp_get_db_schema()
 		 */

@@ -17,9 +17,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 0.1.0
  */
 class Statify {
-	const TRACKING_METHOD_DEFAULT = 0;
-	const TRACKING_METHOD_JAVASCRIPT_WITH_NONCE_CHECK = 1;
-	const TRACKING_METHOD_JAVASCRIPT_WITHOUT_NONCE_CHECK = 2;
+	const TRACKIG_METHOD_JAVASCRIPT_WITHOUT_NONCE_CHECK = 2;
 
 	/**
 	 * Plugin options.
@@ -398,5 +396,26 @@ class Statify {
 	 */
 	public static function get_meta( $statify_id, $meta_key = '', $single = false ) {
 		return get_metadata( 'statify', $statify_id, $meta_key, $single );
+	}
+
+
+	/**
+	 * Get the latest title saved in statifymeta by a target url
+	 *
+	 * @param string $target Target url to get title from.
+	 *
+	 * @return string
+	 */
+	public static function get_newest_title_by_target( $target ) {
+		global $wpdb;
+
+		$sql = $wpdb->prepare( "SELECT meta.meta_value FROM {$wpdb->statifymeta} AS meta, {$wpdb->statify} AS statify WHERE statify.target = %s AND statify.id = meta.statify_id ORDER BY meta.meta_id DESC", $target );
+		$result = $wpdb->get_var( $sql );
+
+		if ( null === $result ) {
+			return 'Kein Titel gefunden';
+		}
+
+		return $result;
 	}
 }

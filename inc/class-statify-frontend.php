@@ -19,21 +19,21 @@ defined( 'ABSPATH' ) || exit;
 class Statify_Frontend extends Statify {
 
 	/**
-	 * Statify meta fields for tracking
+	 * Statify meta fields for tracking.
 	 *
 	 * @var array
 	 */
 	private static $tracking_meta = array();
 
 	/**
-	 * Default statify tracking data
+	 * Default statify tracking data.
 	 *
 	 * @var array
 	 */
 	private static $tracking_data = array();
 
 	/**
-	 * Initialization of tracking data
+	 * Initialization of tracking data.
 	 *
 	 * @return void
 	 */
@@ -60,7 +60,7 @@ class Statify_Frontend extends Statify {
 	}
 
 	/**
-	 * Track the page view
+	 * Track the page view.
 	 *
 	 * @since    0.1.0
 	 * @since    1.7.0 $is_snippet parameter added.
@@ -107,7 +107,7 @@ class Statify_Frontend extends Statify {
 
 
 	/**
-	 * Print JavaScript snippet
+	 * Print JavaScript snippet.
 	 *
 	 * @since    1.1.0
 	 * @version  1.4.1
